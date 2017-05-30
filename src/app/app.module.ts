@@ -1,3 +1,4 @@
+import {MateGuardComponent} from './mate/mate-guards.component';
 import {MateListComponent} from './mate-list/mate-list.component';
 import {MateComponent} from './mate/mate.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,7 +12,8 @@ import { AppComponent } from './app.component';
   declarations: [
     AppComponent,
     MateComponent,
-    MateListComponent
+    MateListComponent,
+    MateGuardComponent
   ],
   imports: [
     BrowserModule,
