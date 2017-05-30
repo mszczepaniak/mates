@@ -1,3 +1,4 @@
+import {ToasterService} from './services/toastr.service';
 import {MateService} from './services/mate.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -13,6 +14,6 @@ import {MateComponent} from './mate/mate.component';
   ],
   imports: [CommonModule],
   exports: [MateListComponent],
-  providers: [MateService],
+  providers: [MateService, ToasterService],
 })
 export class MateModule {}

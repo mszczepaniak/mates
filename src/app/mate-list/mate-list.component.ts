@@ -1,3 +1,4 @@
+import {ToasterService} from '../services/toastr.service';
 import {MateService} from '../services/mate.service';
 import {ActivatedRoute} from '@angular/router';
 import {Router} from '@angular/router';
@@ -9,7 +10,8 @@ import {Component, OnInit, OnDestroy} from '@angular/core';
   template: `
     <div class="jumbotron">
       <h1 class="westie-header">WESTIE MATES</h1>
-          <app-mate
+      <div *ngIf="mates">
+        <app-mate
             [name]="mates[0].name"
             [id]="mates[0].id"
             (mateSelected)="handleMateSelected($event)"
@@ -25,6 +27,7 @@ import {Component, OnInit, OnDestroy} from '@angular/core';
           </app-mate>
           <hr>
       </div>
+    </div>
   `,
   styles: [`
   .westie-header {
@@ -35,15 +38,17 @@ import {Component, OnInit, OnDestroy} from '@angular/core';
 export class MateListComponent implements OnInit, OnDestroy {
   mates: any;
 
-  constructor(private mateService: MateService) {}
+  constructor(private mateService: MateService, private toasterService: ToasterService) {}
 
   handleMateSelected(mate) {
-    alert('handled ' + mate.name + mate.id);
+      this.toasterService.success(mate.name, 'SELECTED!');
   }
 
   ngOnInit() {
-    this.mates = this.mateService.getMates();
+     this.mateService.getMates()
+       .then((mates) => this.mates = mates);
 }
+
 ngOnDestroy() {
   //Called once, before the instance is destroyed.
   //Add 'implements OnDestroy' to the class.
