@@ -1,3 +1,4 @@
+import {LoginComponent} from './login/login.component';
 import {RouterModule} from '@angular/router';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {MateModule} from './mate.module';
@@ -11,7 +12,8 @@ import {appRoutes} from '../routes';
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

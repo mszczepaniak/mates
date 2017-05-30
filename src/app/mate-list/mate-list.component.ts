@@ -8,6 +8,7 @@ import {Component, OnInit, OnDestroy} from '@angular/core';
 @Component({
   selector: 'app-mate-list',
   template: `
+    <span class="text-primary">Welcome {{username}}</span>
     <div class="jumbotron">
       <h1 class="westie-header">WESTIE MATES</h1>
       <div *ngIf="mates">
@@ -31,8 +32,11 @@ import {Component, OnInit, OnDestroy} from '@angular/core';
 })
 export class MateListComponent implements OnInit, OnDestroy {
   mates: any;
+  username: string;
 
-  constructor(private mateService: MateService, private toasterService: ToasterService, private router: Router) {}
+  constructor(
+    private mateService: MateService, private toasterService: ToasterService,
+    private router: Router, private route: ActivatedRoute) {}
 
   handleMateSelected(mate) {
       this.toasterService.success(mate.name, 'SELECTED!');
@@ -40,7 +44,8 @@ export class MateListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-     this.mateService.getMates()
+    this.username = this.route.snapshot.params['username'] || 'unknown';
+    this.mateService.getMates()
        .then((mates) => this.mates = mates);
 }
 
