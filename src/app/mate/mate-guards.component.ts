@@ -4,7 +4,7 @@ import {Component, Input} from '@angular/core';
 @Component({
   selector: 'app-mate-guard',
   template: `
-  <p>
+  <p class="text-danger">
   <span (mouseenter)="guard()">
     My id: {{id}}
   </span>

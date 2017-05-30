@@ -4,11 +4,15 @@ import {Component, Input} from '@angular/core';
 @Component({
   selector: 'app-mate',
   template: `
-  <p>I am westie mate!</p>
-  <p>My name: {{name}}</p>
-  <app-mate-guard [id]="id"></app-mate-guard>
-  <button (click)="onLocalClick()">Local click</button>
-  <button (click)="onParentClick()">Parent click</button>
+  <div class="container">
+    <p>I am westie mate!</p>
+    <p>My name: {{name}}</p>
+    <app-mate-guard [id]="id"></app-mate-guard>
+    <button class="btn btn-primary" (click)="onLocalClick()">
+    <i class="fa fa-users pull-left" aria-hidden="true"></i>Local click</button>
+    <button class="btn btn-danger"  (click)="onParentClick()">
+    <i class="fa fa-user-circle" aria-hidden="true"></i>Parent click</button>
+  </div>
   `
 })
 export class MateComponent {

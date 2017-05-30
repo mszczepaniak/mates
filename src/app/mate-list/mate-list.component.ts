@@ -6,9 +6,8 @@ import {Component, OnInit} from '@angular/core';
 @Component({
   selector: 'app-mate-list',
   template: `
-    <div>
-      <h1>WESTIE MATES</h1>
-          <p>{{mates[0].name}}</p>
+    <div class="jumbotron">
+      <h1 class="westie-header">WESTIE MATES</h1>
           <app-mate
             [name]="mates[0].name"
             [id]="mates[0].id"
@@ -17,7 +16,6 @@ import {Component, OnInit} from '@angular/core';
           </app-mate>
           <hr>
 
-          <p>{{mates[1].name}}</p>
           <app-mate
             [name]="mates[1].name"
             [id]="mates[1].id"
@@ -26,7 +24,12 @@ import {Component, OnInit} from '@angular/core';
           </app-mate>
           <hr>
       </div>
-  `
+  `,
+  styles: [`
+  .westie-header {
+    margin-bottom: 70px;
+  }
+  `]
 })
 export class MateListComponent {
   mates: any;
