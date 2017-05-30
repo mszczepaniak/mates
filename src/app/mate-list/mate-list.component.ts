@@ -11,21 +11,15 @@ import {Component, OnInit, OnDestroy} from '@angular/core';
     <div class="jumbotron">
       <h1 class="westie-header">WESTIE MATES</h1>
       <div *ngIf="mates">
-        <app-mate
-            [name]="mates[0].name"
-            [id]="mates[0].id"
-            (mateSelected)="handleMateSelected($event)"
-          >
-          </app-mate>
-          <hr>
-
+        <div *ngFor="let mate of mates; let i=index">
           <app-mate
-            [name]="mates[1].name"
-            [id]="mates[1].id"
+            [name]="mate?.name"
+            [id]="mate?.id"
             (mateSelected)="handleMateSelected($event)"
           >
           </app-mate>
           <hr>
+        </div>
       </div>
     </div>
   `,
