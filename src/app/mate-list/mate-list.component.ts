@@ -1,7 +1,7 @@
 import {ActivatedRoute} from '@angular/router';
 import {Router} from '@angular/router';
 import {NgFor} from '@angular/common/src/directives/ng_for_of';
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 
 @Component({
   selector: 'app-mate-list',
@@ -31,14 +31,14 @@ import {Component, OnInit} from '@angular/core';
   }
   `]
 })
-export class MateListComponent {
+export class MateListComponent implements OnInit, OnDestroy {
   mates: any;
 
   handleMateSelected(mate) {
     alert('handled ' + mate.name + mate.id);
   }
 
-  constructor() {
+  ngOnInit() {
     this.mates = [
     {
       id: 1,
@@ -271,5 +271,14 @@ export class MateListComponent {
       }
     }
   ];
+}
+ngOnDestroy() {
+  //Called once, before the instance is destroyed.
+  //Add 'implements OnDestroy' to the class.
+  this.mates = [];
+}
+
+  constructor() {
+
   }
 }
