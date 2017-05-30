@@ -1,3 +1,4 @@
+import {MateService} from './services/mate.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MateGuardComponent} from './mate/mate-guards.component';
@@ -12,6 +13,6 @@ import {MateComponent} from './mate/mate.component';
   ],
   imports: [CommonModule],
   exports: [MateListComponent],
-  providers: [],
+  providers: [MateService],
 })
 export class MateModule {}
