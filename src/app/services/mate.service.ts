@@ -16,6 +16,15 @@ export class MateService {
                   .catch(this.handleError);
   }
 
+  getMate(mateId): Promise<any> {
+    return this.http.get(`https://jsonplaceholder.typicode.com/users/${mateId}`)
+                  .toPromise()
+                  .then(response => {
+                    return response.json();
+                    })
+                  .catch(this.handleError);
+}
+
   private handleError(error: any) {
     console.error('An error happened', error);
     return Promise.reject(error.message || error);

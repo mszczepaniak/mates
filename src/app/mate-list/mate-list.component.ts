@@ -32,10 +32,11 @@ import {Component, OnInit, OnDestroy} from '@angular/core';
 export class MateListComponent implements OnInit, OnDestroy {
   mates: any;
 
-  constructor(private mateService: MateService, private toasterService: ToasterService) {}
+  constructor(private mateService: MateService, private toasterService: ToasterService, private router: Router) {}
 
   handleMateSelected(mate) {
       this.toasterService.success(mate.name, 'SELECTED!');
+      this.router.navigateByUrl(`/mates/details/${mate.id}`);
   }
 
   ngOnInit() {

@@ -5,12 +5,14 @@ import { CommonModule } from '@angular/common';
 import {MateGuardComponent} from './mate/mate-guards.component';
 import {MateListComponent} from './mate-list/mate-list.component';
 import {MateComponent} from './mate/mate.component';
+import {MateDetailsComponent} from './mate/mate-details.component';
 
 @NgModule({
   declarations: [
     MateComponent,
     MateListComponent,
-    MateGuardComponent
+    MateGuardComponent,
+    MateDetailsComponent
   ],
   imports: [CommonModule],
   exports: [MateListComponent],
